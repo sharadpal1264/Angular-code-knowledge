@@ -1,0 +1,29 @@
+<div class="card-container">
+  <div class="form-wrrap" style="max-width:400px;margin-top:40px;background: #f9f8f8">
+    <h3>User Register</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="userRegister()" autocomplete="off">
+      
+      <input type="text" placeholder="Full Name" formControlName="fullname" />
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <input
+        type="password"
+        placeholder="Create Password"
+        formControlName="password"
+      />
+      <input type="submit" value="Register" [disabled]="!registerForm.valid" />
+      <div class="or-seperator"><b>or</b></div>
+      <div class="col-md-12"> 
+       
+        <button class="btn btn-lg btn-google btn-block text-uppercase btn-outline" 
+          (click)="userGoogleRegister()">
+          <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+          Signup Using Google
+        </button>     
+      </div>
+    </form>
+  </div>
+</div> 

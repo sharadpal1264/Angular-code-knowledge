@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="#" class="navbar-brand">Knowledge <b>Base</b></a>  		
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Collection of nav links, forms, and other content for toggling -->
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+
+    <div class="navbar-nav ml-auto action-buttons">
+      
+      <div *ngIf="userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="/listings" class="nav-link mr-4">All Contents</a>
+      </div>
+
+      <div *ngIf="userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="listings/add-listing" class="nav-link mr-4">Add Content</a>
+      </div>
+
+      <div *ngIf="userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="listings/add-Category" class="nav-link mr-4">Add Category</a>
+      </div>
+
+      <div *ngIf="userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="/user/profile" class="nav-link mr-4">Profile</a>
+      </div>
+      
+      <div *ngIf="!userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="user/login" class="nav-link mr-4">Login</a>
+      </div>
+
+      <div *ngIf="!userService.loggedIn()" class="nav-item dropdown">
+        <a routerLink="user/register" class="btn btn-primary">Sign Up</a>
+      </div>
+
+      <div *ngIf="userService.loggedIn()" class="nav-item dropdown">
+        <a (click)="userService.logOut()" class="btn btn-primary">logout</a>
+      </div>
+
+    </div>
+  </div>
+</nav>

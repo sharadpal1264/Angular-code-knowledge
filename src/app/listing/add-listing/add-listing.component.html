@@ -1,0 +1,24 @@
+<div class="form-wrrap" style="max-width:400px;margin-top:40px;background: #f9f8f8">
+  <h3>Add New Content</h3>
+  <form [formGroup]="listingForm" (ngSubmit)="newListing()">
+
+    <select *ngIf="Categories$ | async as Categories" type="text" class="form-control form-control-sm" formControlName="CategoryName">
+      <option>Choose Category Name</option>
+      <option *ngFor="let category of Categories">{{ category.CategoryName }}</option>
+   
+    </select>
+    <input type="text" placeholder="Enter Content Details" 
+    formControlName="ContentDetails"/>
+    <br>
+    <br> 
+    <div id="hide" class="col-lg-8 col-xs-8" title="Prefered Image size: 1200*1498 pixels">
+      <img height="100" width="100" [src]="url" style="margin-right:20px;">
+      <label class="hand-cursor">
+       <input type="file" (change)="selectFile($event)"/>
+       <br>
+       <span class="fa fa-camera"><span class="photo_text hidden-xs"> Choose Picture</span></span>
+      </label>
+   </div>
+    <input type="submit" value="Add Content" [disabled]="!listingForm.valid" />
+  </form>
+</div>

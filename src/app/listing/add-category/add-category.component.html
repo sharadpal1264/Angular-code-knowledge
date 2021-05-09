@@ -1,0 +1,9 @@
+<div class="form-wrrap" 
+style="max-width:400px;margin-top:40px;background: #f9f8f8">
+    <h3>Add New Category</h3>
+    <form [formGroup]="categoryForm" (ngSubmit)="newCategory()">
+      <input type="text" placeholder="Enter Content Details" 
+      formControlName="CategoryName"/>
+      <input type="submit" value="Add Content" [disabled]="!categoryForm.valid" />
+    </form>
+  </div>
